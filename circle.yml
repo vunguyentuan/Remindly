@@ -21,7 +21,7 @@ dependencies:
 test:
   override:
     - ./gradlew assembleRelease
-    - cp -r Remindly/build/outputs $CIRCLE_ARTIFACTS
+    - cp -r app/build/outputs $CIRCLE_ARTIFACTS
   pre:
     - emulator -avd circleci-android22 -no-audio -no-window:
         background: true
