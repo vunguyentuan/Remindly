@@ -19,7 +19,7 @@ dependencies:
 test:
   override:
     - (./gradlew assemble):
-      timeout: 360
+        timeout: 360
   pre:
     - emulator -avd circleci-android22 -no-audio -no-window:
         background: true
