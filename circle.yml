@@ -9,6 +9,9 @@ general:
     - /home/ubuntu/remindly/app/build/outputs/apk/
 
 dependencies:
+  cache_directories:
+		- ~/.android
+    - ~/android
   override:
     - echo y | android update sdk --no-ui --all --filter tools,platform-tools,build-tools-22.0.1,android-22,extra-google-m2repository,extra-google-google_play_services,extra-android-support
     - chmod +x gradlew
@@ -18,7 +21,7 @@ dependencies:
 test:
   override:
     - ./gradlew assembleRelease
-    - cp -r remindly/build/outputs $CIRCLE_ARTIFACTS
+    - cp -r Remindly/build/outputs $CIRCLE_ARTIFACTS
   pre:
     - emulator -avd circleci-android22 -no-audio -no-window:
         background: true
