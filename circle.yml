@@ -18,7 +18,6 @@ dependencies:
 test:
   override:
     - ./gradlew assembleRelease
-        timeout: 360
     - cp -r remindly/build/outputs $CIRCLE_ARTIFACTS
   pre:
     - emulator -avd circleci-android22 -no-audio -no-window:
