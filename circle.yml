@@ -1,7 +1,9 @@
 #
 # Build configuration for Circle CI
 #
-
+machine:
+  ruby:
+    version: 2.1.7
 general:
   artifacts:
     - /home/ubuntu/remindly/app/build/outputs/apk/
