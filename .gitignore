@@ -32,6 +32,7 @@ keystore.properties
 
 # Sandbox stuff
 # Calabash
-calabash/test_servers
-calabash/.irb-history
-calabash/screenshot_*.png
+test_servers
+.irb-history
+screenshot_*.png
+*.apk

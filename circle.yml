@@ -22,12 +22,12 @@ test:
   override:
     - ./gradlew assemble
     - cp -r app/build/outputs $CIRCLE_ARTIFACTS
-    - ls
-    - cp -r app/build/outputs/apk/app-debug-unaligned.apk calabash/app.apk
-    - cd calabash
-    - ls
+    - cp -r app/build/outputs/apk/app-debug-unaligned.apk app.apk
     - calabash-android resign app.apk
-    - calabash-android run app.apk
+    - calabash-android run app.apk --format junit --out /tmp/junit
+    - cp *.png $CIRCLE_ARTIFACTS
+    - cp /tmp/junit/* $CIRCLE_TEST_REPORTS
+    - adb logcat -d > $CIRCLE_ARTIFACTS/logcat.txt
   pre:
     - emulator -avd circleci-android22 -no-audio -no-window:
         background: true
