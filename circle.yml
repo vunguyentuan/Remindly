@@ -20,7 +20,7 @@ dependencies:
 
 test:
   override:
-    - ./gradlew assembleRelease
+    - ./gradlew assemble
     - cp -r app/build/outputs $CIRCLE_ARTIFACTS
     - cp app/build/outputs/apk/app-debug-unaligned.apk calabash/app.apk
     - cd calabash
