@@ -22,6 +22,10 @@ test:
   override:
     - ./gradlew assembleRelease
     - cp -r app/build/outputs $CIRCLE_ARTIFACTS
+    - cp app/build/outputs/apk/app-debug-unaligned.apk calabash/app.apk
+    - cd calabash
+    - calabash-android resign app.apk
+    - calabash-android run app.apk
   pre:
     - emulator -avd circleci-android22 -no-audio -no-window:
         background: true

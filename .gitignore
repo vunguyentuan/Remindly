@@ -31,3 +31,7 @@ keystore.properties
 *.iws
 
 # Sandbox stuff
+# Calabash
+calabash/test_servers
+calabash/.irb-history
+calabash/screenshot_*.png
