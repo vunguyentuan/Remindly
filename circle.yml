@@ -23,6 +23,7 @@ test:
     - ./gradlew assemble
     - cp -r app/build/outputs $CIRCLE_ARTIFACTS
     - cp -r app/build/outputs/apk/app-debug-unaligned.apk app.apk
+    - adb shell screencap -p | sed 's/\r$//' > $CIRCLE_ARTIFACTS/screen.png
     - calabash-android resign app.apk
     - calabash-android run app.apk --format junit --out /tmp/junit
     - cp *.png $CIRCLE_ARTIFACTS
